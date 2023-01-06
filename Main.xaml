@@ -1,6 +1,6 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="605,1124" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="http://schemas.uipath.com/workflow/activities/ocr" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="620,1593" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="http://schemas.uipath.com/workflow/activities/ocr" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System.Text.RegularExpressions" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="39">
+    <scg:List x:TypeArguments="x:String" Capacity="40">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -40,10 +40,11 @@
       <x:String>UiPath.OCR.Contracts.Activities</x:String>
       <x:String>UiPath.DocumentUnderstanding.Digitizer.Utils</x:String>
       <x:String>UiPath.PDF.Activities</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="54">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="55">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -97,15 +98,16 @@
       <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
       <AssemblyReference>UiPath.DocumentUnderstanding.Digitizer</AssemblyReference>
       <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main " sap:VirtualizedContainerService.HintSize="534,1059" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main " sap:VirtualizedContainerService.HintSize="630,1528" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ForEachFileX DisplayName="For Each File in Folder" Filter="*.pdf" Folder="E:\RPA_workspace\Robot6_OpticalCharacterRecogintion\ScannedReceipts" sap:VirtualizedContainerService.HintSize="472,948" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
+    <ui:ForEachFileX DisplayName="For Each File in Folder" Filter="*.pdf" Folder="E:\RPA_workspace\Robot6_OpticalCharacterRecogintion\ScannedReceipts" sap:VirtualizedContainerService.HintSize="568,1417" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
       <ui:ForEachFileX.Body>
         <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
           <ActivityAction.Argument1>
@@ -114,18 +116,21 @@
           <ActivityAction.Argument2>
             <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
           </ActivityAction.Argument2>
-          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,698" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="534,1167" sap2010:WorkflowViewState.IdRef="TryCatch_1">
             <TryCatch.Try>
-              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="400,470" sap2010:WorkflowViewState.IdRef="Sequence_2">
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="496,939" sap2010:WorkflowViewState.IdRef="Sequence_2">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:String" Name="AllPDFText" />
+                  <Variable x:TypeArguments="x:String" Name="ExtractedReceiptID" />
+                  <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="EightItems" />
+                  <Variable x:TypeArguments="x:String" Name="ExtractedTransactionID" />
                 </Sequence.Variables>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="338,52" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="CommentOut_1">
                   <ui:CommentOut.Body>
                     <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,483" sap2010:WorkflowViewState.IdRef="Sequence_4">
                       <sap:WorkflowViewStateService.ViewState>
@@ -200,7 +205,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:CommentOut>
-                <ui:ReadPDFWithOCR Text="{x:Null}" DegreeOfParallelism="-1" DisplayName="Read PDF With OCR" FileName="[CurrentFile.FullName]" sap:VirtualizedContainerService.HintSize="338,135" sap2010:WorkflowViewState.IdRef="ReadPDFWithOCR_1" ImageDpi="150" Range="All">
+                <ui:ReadPDFWithOCR Text="{x:Null}" DegreeOfParallelism="-1" DisplayName="Read PDF With OCR" FileName="[CurrentFile.FullName]" sap:VirtualizedContainerService.HintSize="434,135" sap2010:WorkflowViewState.IdRef="ReadPDFWithOCR_1" ImageDpi="150" Range="All">
                   <ui:ReadPDFWithOCR.OCREngine>
                     <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
                       <ActivityFunc.Argument>
@@ -210,11 +215,29 @@
                     </ActivityFunc>
                   </ui:ReadPDFWithOCR.OCREngine>
                 </ui:ReadPDFWithOCR>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[AllPDFText]" />
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[AllPDFText]" />
+                <ui:Matches BuilderPattern="(\d{8})" DisplayName="Matches Eight Digits" sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[AllPDFText]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;DIG&quot;,&quot;OperationName&quot;:&quot;Digit&quot;,&quot;OperationValue&quot;:&quot;\\d&quot;,&quot;QuantifierFirstValue&quot;:&quot;8&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(\d{8})" RegexOption="IgnoreCase, Compiled" Result="[EightItems]" />
+                <Assign DisplayName="Assign Extracted Receipt ID" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[ExtractedReceiptID]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[EightItems.First.ToString]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign DisplayName="Assign Extracted Transaction ID" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_2">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[ExtractedTransactionID]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[EightItems.Last.ToString]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="434,85" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[ExtractedReceiptID]" />
               </Sequence>
             </TryCatch.Try>
             <TryCatch.Catches>
-              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="500,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
