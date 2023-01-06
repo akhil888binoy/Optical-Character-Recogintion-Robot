@@ -99,6 +99,7 @@
       <AssemblyReference>UiPath.DocumentUnderstanding.Digitizer</AssemblyReference>
       <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
       <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>GlobalVariablesT1PNoYwrqg</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="Main " sap:VirtualizedContainerService.HintSize="630,1872" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -245,7 +246,7 @@
                     <InArgument x:TypeArguments="x:String">[ListOfDates.First.ToString]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_4">
+                <Assign DisplayName="Assign Formatted Date" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_4">
                   <Assign.To>
                     <OutArgument x:TypeArguments="s:DateTime">[ExtractedDateFormatted]</OutArgument>
                   </Assign.To>
