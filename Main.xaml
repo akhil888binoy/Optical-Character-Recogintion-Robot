@@ -245,7 +245,7 @@
                     <InArgument x:TypeArguments="x:String">[ListOfDates.First.ToString]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_4">
+                <Assign DisplayName="Assign Formatted Date" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_4">
                   <Assign.To>
                     <OutArgument x:TypeArguments="s:DateTime">[ExtractedDateFormatted]</OutArgument>
                   </Assign.To>
@@ -253,7 +253,7 @@
                     <InArgument x:TypeArguments="s:DateTime">[Convert.ToDateTime(ExtractedDate)]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="434,85" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[ExtractedDateFormatted.ToString]" />
+                <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="434,85" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[ExtractedDateFormatted.ToString(&quot;MM/dd/yyyy&quot;)]" />
               </Sequence>
             </TryCatch.Try>
             <TryCatch.Catches>
